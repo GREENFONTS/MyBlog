@@ -9,48 +9,82 @@ import {
 import Footer from "./footer";
 import Header from './header';
 import Home from "./HomeComponent";
-// import About from "./aboutusComponent";
-// import Contact from "./contactComponent";
-// import Blog from "./BlogPost";
-import { fetchPosts, postFeedback } from "../redux/actionCreators/postActions";
+import About from "./aboutusComponent";
+import Contact from "./contactComponent";
+import Blog from "./BlogPost";
+import Motivation from "./motivation";
+import Education from "./Education";
+import Programming from "./Programming";
+import { fetchPosts, postFeedback, mailForm } from "../redux/actionCreators/postActions";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
-import "../App.css";
-import Container from "@material-ui/core/Container"; 
-import { makeStyles } from "@material-ui/core/styles";
-
+import "../index.css";
+import { state } from './RightBar';
+import { SnackbarProvider } from "notistack";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Main extends Component {
 
   componentDidMount() {
-    this.props.fetchPosts()
+    // this.props.fetchPosts()
   }
   render() {
     return (
       <Router>
         <div className="container" id="App">
           <Header />
-          <Switch>
-
-            <Route path="/" exact component={Home} />
-            {/* <Route path="/aboutus" exact component={About} />
-            <Route
-              path="/contactus"
-              exact
-              component={() => (
-                <Contact
-                  resetFeedbackForm={this.props.resetFeedbackForm}
-                  postFeedBack={this.props.postFeedBack}
+          <TransitionGroup>
+            <CSSTransition
+              key={this.props.location.key}
+              classNames="page"
+              timeout={300}
+            >
+              <Switch location={this.props.location}>
+                <Route
+                  path="/"
+                  exact
+                  component={() => (
+                    <SnackbarProvider maxSnack={1}>
+                      <Home
+                        mailForm={this.props.mailForm}
+                        sendMail={this.props.sendMail}
+                        successMess={this.props.posts.errMess}
+                      />
+                    </SnackbarProvider>
+                  )}
                 />
-              )}
-            />
-            <Route
-              path="/blog/:blogid"
-              exact
-              component={() => <Blog posts={this.props.posts} />}
-            /> */}
-            <Redirect path="/" />
-          </Switch>
+
+                <Route path="/aboutus" exact component={About} />
+                <Route
+                  path="/category/motivation"
+                  exact
+                  component={Motivation}
+                />
+                <Route path="/category/Education" exact component={Education} />
+                <Route
+                  path="/category/Programming"
+                  exact
+                  component={Programming}
+                />
+                <Route
+                  path="/contactus"
+                  exact
+                  component={() => (
+                    <Contact
+                      resetFeedbackForm={this.props.resetFeedbackForm}
+                      postFeedBack={this.props.postFeedBack}
+                    />
+                  )}
+                />
+                <Route
+                  path="/blog/:blogid"
+                  exact
+                  component={() => <Blog posts={this.props.posts} />}
+                />
+                <Redirect path="/" />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
           <Footer />
         </div>
       </Router>
@@ -60,8 +94,7 @@ class Main extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts,
-    
+    posts: state.posts,    
   };
 };
 
@@ -92,6 +125,10 @@ const mapDispatchToProps = (dispatch) => ({
         message
       )
     ),
+  mailForm: () => {
+    dispatch(mailForm(state));
+  },
+  
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

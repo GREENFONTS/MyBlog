@@ -1,26 +1,26 @@
 *{
-  font-family: "'Segoe UI', Tahoma, sans-serif";
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 body{
-  background-color: rgb(230, 224, 230);
+  background-color: rgb(241, 232, 241);
 }
 
 #App{
-  width:70%;
+  width:90%;
   margin: auto;
   background-color: white;
-  padding: 0px;
+  padding: 1px;
 }
 
-.slider {
+#slider {
   font-family: sans-serif;
   align-items: center;
   justify-content: center;
   height: 40vh;
   width: 100%;
   display: block;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .rec-carousel-item:focus {
@@ -42,19 +42,71 @@ body{
 #pagbutton{
   margin-right: 10px;
   padding: 10px;
+  
 }
-@media(max-width: 795px){
+#MailText{
+  font-size: 12px;
+}
+#blogCategory{
+font-size: 15px;
+padding: 8px 20px;
+}
+#blogCategory:hover{
+  background-color: yellowgreen;
+  color: white;
+}
+#RightBarlinks{
+  cursor: pointer;
+}
+.RenderCard {
+    height: "27vh";
+    padding: 0;
+    margin: "20px";
+    display: "inline-block";
+    width:"250px";
+}
+
+
+
+@media(max-width: 600px){
 #App{
   width:100%;
   padding: 5px;
   margin: auto;
 }
 #Prev{
-  margin-left: -10px;
-  font-size: 12px;
+  margin-left: -20px;
+  font-size: 10px;
 }
 #pagbutton{
-  margin-right: 10px;
+  margin-right: 7px;
   padding: 5px;
 }
+}
+
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 400px;
+}
+
+#mycarousel {
+  background: #512DA8;
+}
+#mycarousel .carousel-inner .carousel-item {
+  height: 300px;
+}
+#mycarousel .carousel-inner .carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px;
+  /* width: 300px; */
+}
+#carouselButton {
+  right: 0px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
 }

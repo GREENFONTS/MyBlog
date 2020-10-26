@@ -1,26 +1,6 @@
 import React from "react";
-import Carousel from "react-elastic-carousel";
 import "../App.css";
 
-import styled from "styled-components";
-
-const Item = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 100%;
-  background-color: #683bb7;
-  color: #fff;
-  margin: 5px;
-  font-size: 4em;
-`;
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 1, itemsToScroll: 1 },
-  { width: 768, itemsToShow: 1 },
-  { width: 1200, itemsToShow: 1 },
-];
 export const Posts = [
   {
     name: "Post 1",
@@ -34,23 +14,135 @@ export const Posts = [
     name: "Post 3",
     description: "This post 3",
   },
+  {
+    name: "Post 4",
+    description: "This post 4",
+  },
+  {
+    name: "Post 5",
+    description: "This post 5",
+  },
+  {
+    name: "Post 6",
+    description: "This post 6",
+  },
+  {
+    name: "Post 7",
+    description: "This post 3",
+  },
+  {
+    name: "Post 7",
+    description: "This post 7",
+  },
+  {
+    name: "Post 8",
+    description: "This post 8",
+  },
+  {
+    name: "Post 9",
+    description: "This post 9",
+  },
+  {
+    name: "Post 10",
+    description: "This post 10",
+  },
+  {
+    name: "Post 11",
+    description: "This post 11",
+  },
+  {
+    name: "Post 12",
+    description: "This post 12",
+  },
+  {
+    name: "Post 13",
+    description: "This post 13",
+  },
+  {
+    name: "Post 14",
+    description: "This post 14",
+  },
+  {
+    name: "Post 15",
+    description: "This post 15",
+  },
 ];
+
+
 const Slider = () => {
+ 
   return (
-    <div className="slider">
-      <Carousel breakPoints={breakPoints}>
-        {Posts.map((item) => {
-          return (
-            <Item>
-              <div>
-                <h1>{item.name}</h1>
-                <h4>{item.description}</h4>
+  
+    <div className="row row-content">
+      <div className="col">
+        <div id="mycarousel" className="carousel slide" data-ride="carousel">
+          <div className="carousel-inner" role="listbox">
+            <div className="carousel-item active">
+              <img
+                className="d-block img-fluid"
+                src="assets/images/Home.jpg"
+                alt="Uthappizza"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h2>
+                  Uthappizza <span className="badge badge-danger">HOT</span>
+                  <span className="badge badge-pill badge-default">$4.99</span>
+                </h2>
               </div>
-            </Item>
-          );
-        })}
-      </Carousel>
+            </div>
+            <div className="carousel-item">
+              <img
+                className="d-block img-fluid"
+                src="assets/images/Mypic.jpg"
+                alt="Uthappizza"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h2>
+                  Uthappizza <span className="badge badge-danger">HOT</span>
+                  <span className="badge badge-pill badge-default">$4.99</span>
+                </h2>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img
+                className="d-block img-fluid"
+                src="assets/images/green logo.jpg"
+                alt="Uthappizza"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h2>
+                  Uthappizza <span className="badge badge-danger">HOT</span>
+                  <span className="badge badge-pill badge-default">$4.99</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+          <ol className="carousel-indicators">
+            <li data-target="#mycarousel" data-slide-to="0" className="active"></li>
+            <li data-target="#mycarousel" data-slide-to="1"></li>
+            <li data-target="#mycarousel" data-slide-to="2"></li>
+          </ol>
+          <a
+            className="carousel-control-prev"
+            href="#mycarousel"
+            role="button"
+            data-slide="prev"
+          >
+            <span className="carousel-control-prev-icon"></span>
+          </a>
+          <a
+            className="carousel-control-next"
+            href="#mycarousel"
+            role="button"
+            data-slide="next"
+          >
+            <span className="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
     </div>
+    
+
   );
 };
 

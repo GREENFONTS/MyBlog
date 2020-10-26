@@ -94,55 +94,55 @@ const Header = () => {
             <ListItemText>GREENFONTSMEDIA</ListItemText>
           </ListItem>
           <Divider />
-          <Link to="/home">
+          <Link href="/">
             <ListItem button>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText>Home</ListItemText>
+              <ListItemText>HOME</ListItemText>
             </ListItem>
           </Link>
-          <Link to="/about">
+          <Link href="/aboutus">
             <ListItem button>
               <ListItemIcon>
                 <InfoIcon />
               </ListItemIcon>
-              <ListItemText>AboutUs</ListItemText>
+              <ListItemText>ABOUT</ListItemText>
             </ListItem>
           </Link>
-          <Link to="/about">
+          <Link href="/contactus">
             <ListItem button>
               <ListItemIcon>
                 <ContactsIcon />
               </ListItemIcon>
-              <ListItemText>Contact</ListItemText>
+              <ListItemText>CONTACT</ListItemText>
             </ListItem>
           </Link>
         </List>
         <Divider />
         <List>
-          <Link to="/">
+          <Link href="/category/Education">
             <ListItem button>
               <ListItemIcon>
                 <CastForEducationSharpIcon />
               </ListItemIcon>
-              <ListItemText>Education</ListItemText>
+              <ListItemText>EDUCATION</ListItemText>
             </ListItem>
           </Link>
-          <Link to="/">
+          <Link href="/category/Programming">
             <ListItem button>
               <ListItemIcon>
                 <CodeSharpIcon />
               </ListItemIcon>
-              <ListItemText>Technology</ListItemText>
+              <ListItemText>PROGRAMMING</ListItemText>
             </ListItem>
           </Link>
-          <Link to="/">
+          <Link href="/category/motivation">
             <ListItem button>
               <ListItemIcon>
                 <SentimentSatisfiedIcon />
               </ListItemIcon>
-              <ListItemText>Motivational</ListItemText>
+              <ListItemText>MOTIVATIONAL</ListItemText>
             </ListItem>
           </Link>
         </List>
@@ -156,17 +156,17 @@ const Header = () => {
         <Typography className={classes.headerName}>GREENFONTSMEDIA </Typography>
 
         <List className={classes.Icons}>
-          <Link href="https:www.facebook.com" >
+          <Link href="https:www.facebook.com">
             <ListItemIcon className="text-light p-0 m-0">
               <FacebookIcon />
             </ListItemIcon>
           </Link>
-          <Link href="https:www.github.com/GREENFONTS" >
+          <Link href="https:www.github.com/GREENFONTS">
             <ListItemIcon className="text-light p-0 m-0">
               <GitHubIcon />
             </ListItemIcon>
           </Link>
-          <Link href="https:www.linkedIn.com" >
+          <Link href="https:www.linkedIn.com">
             <ListItemIcon className="text-light p-0 m-0 ">
               <LinkedInIcon />
             </ListItemIcon>
@@ -182,63 +182,50 @@ const Header = () => {
                 className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
-                data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
+                // data-target="#navbarNavDropdown"
+                // aria-controls="navbarNavDropdown"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
+                // aria-label="Toggle navigation"
                 color="inherit"
                 onClick={toggleDrawer(anchor, true)}
               >
                 <MenuIcon className="mr-2" /> MENU
               </IconButton>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <Link to="/home">
+                <Link href="/">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <HomeIcon />
-                    </ListItemIcon>
-                    <ListItemText>Home</ListItemText>
+                    <HomeIcon className="mr-2" />
+                    <ListItemText>HOME</ListItemText>
                   </ListItem>
                 </Link>
-                <Link to="/about">
+                <Link href="/aboutus">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <InfoIcon />
-                    </ListItemIcon>
-                    <ListItemText>AboutUs</ListItemText>
+                    <InfoIcon className="mr-2" />
+                    <ListItemText>ABOUT</ListItemText>
                   </ListItem>
                 </Link>
-                <Link to="/about">
+                <Link href="/contactus">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <ContactsIcon />
-                    </ListItemIcon>
-                    <ListItemText>Contact</ListItemText>
+                    <ContactsIcon className="mr-2" />
+                    <ListItemText>CONTACT</ListItemText>
                   </ListItem>
                 </Link>
-                <Divider />
-                <Link to="/">
+                <Link href="/category/Programming">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <CastForEducationSharpIcon />
-                    </ListItemIcon>
-                    <ListItemText>Education</ListItemText>
+                    <CodeSharpIcon className="mr-2" />
+                    <ListItemText>PROGRAMMING</ListItemText>
                   </ListItem>
                 </Link>
-                <Link to="/">
+                <Link href="/category/Education">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <CodeSharpIcon />
-                    </ListItemIcon>
-                    <ListItemText>Technology</ListItemText>
+                    <CastForEducationSharpIcon className="mr-2" />
+                    <ListItemText>EDUCATION</ListItemText>
                   </ListItem>
                 </Link>
-                <Link to="/">
+                <Link href="/category/motivation">
                   <ListItem button className="text-light">
-                    <ListItemIcon className="text-light">
-                      <SentimentSatisfiedIcon />
-                    </ListItemIcon>
-                    <ListItemText>Motivational</ListItemText>
+                    <SentimentSatisfiedIcon className="mr-2" />
+                    <ListItemText>MOTIVATIONAL</ListItemText>
                   </ListItem>
                 </Link>
               </div>

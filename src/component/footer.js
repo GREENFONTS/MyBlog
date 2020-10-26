@@ -32,11 +32,7 @@ function Footer(props) {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link to="/menu" className="text-light">
-                  Menu
-                </Link>
-              </li>
+
               <li>
                 <Link to="/contactus" className="text-light">
                   Contact Us
@@ -47,19 +43,22 @@ function Footer(props) {
           <div className="col-7 col-sm-5">
             <h5>Our Address</h5>
             <address>
-              121, Clear Water Bay Road
+              St, Peter's Church Olokoro
               <br />
-              Clear Water Bay, Kowloon
+              Umuahia, Abia State
               <br />
-              HONG KONG
+              NIGERIA
               <br />
-              <i className="fa fa-phone fa-lg"></i>: +852 1234 5678
+              <i className="fa fa-phone fa-lg"></i>: +234 8132 30908
               <br />
-              <i className="fa fa-fax fa-lg"></i>: +852 8765 4321
+              <i className="fa fa-fax fa-lg"></i>: +234 8027 037290
               <br />
               <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a href="mailto:confusion@food.net" className="text-light">
-                confusion@food.net
+              <a
+                href="https://www.godwillonyewuchii@gmail.com"
+                className="text-light"
+              >
+                godwillonyewuchii@gmail.com
               </a>
             </address>
           </div>
@@ -73,23 +72,23 @@ function Footer(props) {
               </a>
               <a
                 className="btn btn-social-icon btn-facebook m-1"
-                href="http://www.facebook.com/profile.php?id="
+                href="https://web.facebook.com/godwill.onyewuchi"
               >
                 <i className="fa fa-facebook"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-linkedin m-1"
-                href="http://www.linkedin.com/in/"
+                href="https://www.linkedin.com/in/godwill-onyewuchi-6746621b4/"
               >
                 <i className="fa fa-linkedin"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-twitter m-1"
-                href="http://twitter.com/"
+                href="https://twitter.com/GODWILLONYEWUC1"
               >
                 <i className="fa fa-twitter"></i>
               </a>
-              <a className="btn btn-social-icon m-1" href="mailto:" >
+              <a className="btn btn-social-icon m-1" href="https://www.godwillonyewuchii@gmail.com">
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>
@@ -97,7 +96,7 @@ function Footer(props) {
         </div>
         <div className="row justify-content-center">
           <div className="col-auto">
-            <p>© Copyright 2018 Ristorante Con Fusion</p>
+            <p>© Copyright 2020 GreenfontsMediaResources</p>
           </div>
         </div>
       </div>

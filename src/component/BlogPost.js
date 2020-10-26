@@ -1,64 +1,301 @@
-import React, { Component } from "react";
-// import { Breadcrumb, BreadcrumbItem, Card, CardBody,  CardTitle, CardHeader, } from "reactstrap";
-import { Link } from "react-router-dom";
-import Header from "./header";
-import Home from "./HomeComponent";
-import {baseUrl} from '../redux/baseUrl'
+import React from "react";
+// import { baseUrl } from "../redux/baseUrl";
+import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
+import Divider from "@material-ui/core/Divider";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import RightBar from "./RightBar";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import { Posts } from "./slider";
+import CommentIcon from "@material-ui/icons/Comment";
+import ReactDisqusComments from "react-disqus-comments";
+import CardActions from "@material-ui/core/CardActions";
 
-class Blog extends Component {
+const useStyles = makeStyles((theme) => ({
+  MainContainer: {
+    width: "calc(100% + 40px)",
+    margin: 0,
+    paddingLeft: "20px",
+  },
+  leftContainer: {
+    marginTop: "20px",
+    marginLeft: "5px",
+  },
+  BreadCrumbText: {
+    fontWeight: 700,
+    fontSize: 20,
+    textDecoration: "none",
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: "white",
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+  Disqus: {
+    width: "400px",
+  },
+  PostCard: {
+    marginLeft: 10,
+    display: "inline-block",
+  },
+  RenderCard: {
+    height: "27vh",
+    padding: 0,
+    marginTop: "20px",
+    marginRight: "5px",
+    display: "inline-block",
+    width: "230px",
+  },
+}));
 
-    render() {
-       const Style = {
-         color: "#1bc523",
-        };
-        const posts = this.props.posts.posts.map((post) => {
-            return (
-              <Card className="border-secondary mb-3">
-                <CardHeader>{post.Title}</CardHeader>
-                <CardBody>
-                  <img
-                    src={baseUrl + post.Media.url}
-                    alt={post.name}
-                    width="100%"
-                  />
-                  <CardTitle>{post.Content}</CardTitle>
-                </CardBody>
-              </Card>
-            );
-        })
-        const postList = this.props.posts.posts.map((post) => {
-            return (
-              <div>
-                <h3>{post.Title}</h3>
-                <hr />
-              </div>
-            );
-        })
-        
+function RenderCardList(props, { Loading}) {
+  const classes = useStyles();
+  let posts = props.posts
+  console.log(posts)
+  if (Loading) {
+    return <Loading />;
+  } else if (props.errMess) {
+    return <h4>{props.errMess}</h4>;
+  } else
     return (
       <div>
-        <Header Style={Style} />
-        <div className="container">
-          <div className="row">
-            <Breadcrumb>
-              <BreadcrumbItem>
-                <Link to="/home">Home</Link>
-              </BreadcrumbItem>
-              <BreadcrumbItem active>Blog</BreadcrumbItem>
-            </Breadcrumb>
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-9">
-                        {posts}
-                    </div>
-                    <div className="col-12 col-md-3 ">
-                        {postList}
-                    </div>
-                </div>
-        </div>
+        {/* <FadeTransform */}
+        {/* //   in
+        //   transformProps={{
+        //     exitTransform: "scale(0.5) translateY(-50%)",
+        //   }}
+        // > */}
+        {posts.map((post) => {
+          return (
+            <Card className={classes.RenderCard} id="renderCard">
+              <CardActionArea>
+                {/* <CardMedia
+                className={classes.media}
+                image="/static/images/cards/contemplative-reptile.jpg"
+                title="Contemplative Reptile"
+              /> */}
+                <CardContent className="p-0 m-0">
+                  {/* <CardTitle>{item.name}</CardTitle>
+                {item.designation ? (
+                  <CardSubtitle>{item.designation}</CardSubtitle>
+                ) : null}
+                <CardText>{item.description}</CardText>
+                <h1>hello</h1> */}
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {post.name}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="h4"
+                  >
+                    {post.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+
+              <CardActions>
+                <Link>
+                  <Button size="small" color="primary">
+                    Learn More
+                  </Button>
+                </Link>
+              </CardActions>
+            </Card>
+          );
+        })}
+            
+
+        {/* </FadeTransform> */}
       </div>
     );
-  }
 }
+
+function RenderCard(props, { Loading }) {
+  const classes = useStyles();
+  let post = props.post;
+  console.log(post);
+  if (Loading) {
+    return <Loading />;
+  } else if (props.errMess) {
+    return <h4>{props.errMess}</h4>;
+  } else
+    return (
+      <div>
+        {/* <FadeTransform */}
+        {/* //   in
+        //   transformProps={{
+        //     exitTransform: "scale(0.5) translateY(-50%)",
+        //   }}
+        // > */}
+    
+            <Card  id="renderCard">
+              <CardActionArea>
+                {/* <CardMedia
+                className={classes.media}
+                image="/static/images/cards/contemplative-reptile.jpg"
+                title="Contemplative Reptile"
+              /> */}
+                <CardContent className="p-0 m-0">
+                  {/* <CardTitle>{item.name}</CardTitle>
+                {item.designation ? (
+                  <CardSubtitle>{item.designation}</CardSubtitle>
+                ) : null}
+                <CardText>{item.description}</CardText>
+                <h1>hello</h1> */}
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {post.name}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="h4"
+                  >
+                    {post.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+
+              <CardActions>
+                <Link>
+                  <Button size="small" color="primary">
+                    Learn More
+                  </Button>
+                </Link>
+              </CardActions>
+            </Card>
+         
+        {/* </FadeTransform> */}
+      </div>
+    );
+}
+
+const Blog = () => {
+  const classes = useStyles();
+   const currentPosts = Posts.slice(0, 3)
+function handleNewComment(comment) {
+    console.log(comment.text);
+  }
+     return (
+       <div>
+         <Grid container spacing={4} className={classes.MainContainer}>
+           <Grid item xs={11} md={8} className={classes.LeftContainer}>
+             <div className="mt-3 mb-3 container">
+               <Breadcrumbs
+                 separator={<NavigateNextIcon fontSize="small" />}
+                 aria-label="breadcrumb"
+               >
+                 <Link
+                   color="inherit"
+                   href="/"
+                   className={classes.BreadCrumbText}
+                 >
+                   HOME
+                 </Link>
+                 <Link
+                   active
+                   color="inherit"
+                   href="/contactus"
+                   className={classes.BreadCrumbText}
+                 >
+                   PROGRAMMING
+                 </Link>
+                 <Link
+                   active
+                   color="inherit"
+                   href="/contactus"
+                   className={classes.BreadCrumbText}
+                 >
+                   Post 1
+                 </Link>
+               </Breadcrumbs>
+             </div>
+             <Grid className="container pr-5 mt-4 mb-2">
+               <Button variant="contained" color="white" id="blogCategory">
+                 PROGRAMMING
+               </Button>
+             </Grid>
+
+             <Grid container spacing={4}>
+               <Grid item xs={11} md={12}>
+                 <RenderCard className={classes.RenderCard} post={Posts[1]} />
+               </Grid>
+             </Grid>
+             <Grid container>
+               <div className="mb-2 mt-4">
+                 <Button variant="contained" color="primary" id="blogCategory">
+                   {"<  "} PREV ARTICLE
+                 </Button>
+               </div>
+               <div className="mt-4 ">
+                 <h3>Related Articles</h3>
+                 <Divider />
+                 <Grid container spacing={2} className={classes.PostCard}>
+                   <RenderCardList
+                     posts={currentPosts}
+                     className={classes.RenderCard}
+                   />
+                 </Grid>
+               </div>
+             </Grid>
+             <Grid container className="mt-4">
+               <Card>
+                 <CardActionArea>
+                   <CardContent>
+                     <Typography gutterBottom variant="h5" component="h2">
+                       About the Author
+                     </Typography>
+                     <Typography
+                       variant="body2"
+                       color="textSecondary"
+                       component="h3"
+                     >
+                       I am Godwill Onyewuchi, a MERN stack web developer, a
+                       Tech Ethusiast and a Classical Muscician.
+                     </Typography>
+                   </CardContent>
+                 </CardActionArea>
+               </Card>
+             </Grid>
+             <Grid container className="mt-4 mb-5">
+               <div className="container">
+                 <Button variant="contained" color="primary">
+                   <CommentIcon className="mr-2" />
+                   Drop your Comment
+                 </Button>
+               </div>
+             </Grid>
+             <Grid>
+               <ReactDisqusComments
+                 shortname="greenfonts-1"
+                 identifier="1405012"
+                 title="Greenfonts"
+                 url="https://www.GreenFonts.com"
+                 onNewComment={handleNewComment}
+                 className={classes.Disqus}
+               />
+             </Grid>
+           </Grid>
+           <Grid item xs={11} md={3}>
+             <RightBar />
+           </Grid>
+         </Grid>
+       </div>
+     );
+};
 
 export default Blog;
