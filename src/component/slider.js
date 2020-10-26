@@ -61,11 +61,7 @@ export const Posts = [
   {
     name: "Post 14",
     description: "This post 14",
-  },
-  {
-    name: "Post 15",
-    description: "This post 15",
-  },
+  }
 ];
 
 
