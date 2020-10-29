@@ -27,14 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
   MailBox: {
     backgroundColor: "skyblue",
-    height: "52vh",
+    height: "fit-content",
     textAlign: "center",
     paddingTop: theme.spacing(2),
-    padding: 1,
+    padding: 2,
   },
   TextField: {
     marginTop: 1,
-    height: "8.5vh",
   },
   // Checkbox: {
   //   textAlign: "left",
@@ -202,9 +201,16 @@ const RightBar = (props) => {
               }
               label="I consent to subscribe"
             />
-            <Button variant="contained" color="primary" type="submit">
-              SIGN UP NOW
-            </Button>
+            <FormGroup className="mb-2">
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                className="d-block m-auto"
+              >
+                SIGN UP NOW
+              </Button>
+            </FormGroup>
           </form>
         </Container>
       </div>

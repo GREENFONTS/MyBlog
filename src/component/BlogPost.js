@@ -16,6 +16,7 @@ import { Posts } from "./slider";
 import CommentIcon from "@material-ui/icons/Comment";
 import ReactDisqusComments from "react-disqus-comments";
 import CardActions from "@material-ui/core/CardActions";
+import { FadeTransform } from "react-animation-components";
 
 const useStyles = makeStyles((theme) => ({
   MainContainer: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "20px",
   },
   leftContainer: {
-    marginTop: "20px",
+    marginTop: "10px",
     marginLeft: "5px",
   },
   BreadCrumbText: {
@@ -50,14 +51,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
     display: "inline-block",
   },
-  RenderCard: {
-    height: "27vh",
-    padding: 0,
-    marginTop: "20px",
-    marginRight: "5px",
-    display: "inline-block",
-    width: "230px",
-  },
+ 
 }));
 
 function RenderCardList(props, { Loading}) {
@@ -70,56 +64,54 @@ function RenderCardList(props, { Loading}) {
     return <h4>{props.errMess}</h4>;
   } else
     return (
-      <div>
-        {/* <FadeTransform */}
-        {/* //   in
-        //   transformProps={{
-        //     exitTransform: "scale(0.5) translateY(-50%)",
-        //   }}
-        // > */}
-        {posts.map((post) => {
-          return (
-            <Card className={classes.RenderCard} id="renderCard">
-              <CardActionArea>
-                {/* <CardMedia
+      <div className="row row-content d-block CardList">
+        <FadeTransform
+          in
+          transformProps={{
+            exitTransform: "scale(0.5) translateY(-50%)",
+          }}
+        >
+          {posts.map((post) => {
+            return (
+              <Card className="col-12 col-sm-6 col-md-4 d-inline-block">
+                <CardActionArea>
+                  {/* <CardMedia
                 className={classes.media}
                 image="/static/images/cards/contemplative-reptile.jpg"
                 title="Contemplative Reptile"
               /> */}
-                <CardContent className="p-0 m-0">
-                  {/* <CardTitle>{item.name}</CardTitle>
+                  <CardContent className="p-0 m-0">
+                    {/* <CardTitle>{item.name}</CardTitle>
                 {item.designation ? (
                   <CardSubtitle>{item.designation}</CardSubtitle>
                 ) : null}
                 <CardText>{item.description}</CardText>
                 <h1>hello</h1> */}
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {post.name}
-                  </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {post.name}
+                    </Typography>
 
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="h4"
-                  >
-                    {post.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="h4"
+                    >
+                      {post.description}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
 
-              <CardActions>
-                <Link>
-                  <Button size="small" color="primary">
-                    Learn More
-                  </Button>
-                </Link>
-              </CardActions>
-            </Card>
-          );
-        })}
-            
-
-        {/* </FadeTransform> */}
+                <CardActions>
+                  <Link>
+                    <Button size="small" color="primary">
+                      Learn More
+                    </Button>
+                  </Link>
+                </CardActions>
+              </Card>
+            );
+          })}
+        </FadeTransform>
       </div>
     );
 }
@@ -134,15 +126,15 @@ function RenderCard(props, { Loading }) {
     return <h4>{props.errMess}</h4>;
   } else
     return (
-      <div>
-        {/* <FadeTransform */}
-        {/* //   in
-        //   transformProps={{
-        //     exitTransform: "scale(0.5) translateY(-50%)",
-        //   }}
-        // > */}
+      <div className="mt-3">
+        <FadeTransform
+         in
+          transformProps={{
+            exitTransform: "scale(0.5) translateY(-50%)",
+          }}
+        >
     
-            <Card  id="renderCard">
+            <Card  >
               <CardActionArea>
                 {/* <CardMedia
                 className={classes.media}
@@ -179,7 +171,7 @@ function RenderCard(props, { Loading }) {
               </CardActions>
             </Card>
          
-        {/* </FadeTransform> */}
+        </FadeTransform>
       </div>
     );
 }
@@ -194,7 +186,7 @@ function handleNewComment(comment) {
        <div>
          <Grid container spacing={4} className={classes.MainContainer}>
            <Grid item xs={11} md={8} className={classes.LeftContainer}>
-             <div className="mt-3 mb-3 container">
+             <div className="mt-3 mb-3">
                <Breadcrumbs
                  separator={<NavigateNextIcon fontSize="small" />}
                  aria-label="breadcrumb"
@@ -224,35 +216,33 @@ function handleNewComment(comment) {
                  </Link>
                </Breadcrumbs>
              </div>
-             <Grid className="container pr-5 mt-4 mb-2">
+             <Grid className="pr-5 mt-4 mb-2">
                <Button variant="contained" color="white" id="blogCategory">
                  PROGRAMMING
                </Button>
              </Grid>
 
-             <Grid container spacing={4}>
-               <Grid item xs={11} md={12}>
-                 <RenderCard className={classes.RenderCard} post={Posts[1]} />
-               </Grid>
+             <Grid>
+               <RenderCard post={Posts[1]} />
              </Grid>
-             <Grid container>
-               <div className="mb-2 mt-4">
+
+             <Grid>
+               <div className="mb-2 mt-4 d-block">
                  <Button variant="contained" color="primary" id="blogCategory">
                    {"<  "} PREV ARTICLE
                  </Button>
                </div>
+             </Grid>
+             <Grid>
                <div className="mt-4 ">
                  <h3>Related Articles</h3>
                  <Divider />
-                 <Grid container spacing={2} className={classes.PostCard}>
-                   <RenderCardList
-                     posts={currentPosts}
-                     className={classes.RenderCard}
-                   />
-                 </Grid>
                </div>
              </Grid>
-             <Grid container className="mt-4">
+            
+               <RenderCardList posts={currentPosts} />
+            
+             <Grid container className="mt-1">
                <Card>
                  <CardActionArea>
                    <CardContent>
@@ -271,7 +261,7 @@ function handleNewComment(comment) {
                  </CardActionArea>
                </Card>
              </Grid>
-             <Grid container className="mt-4 mb-5">
+             <Grid container className="mt-2 mb-2">
                <div className="container">
                  <Button variant="contained" color="primary">
                    <CommentIcon className="mr-2" />

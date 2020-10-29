@@ -24,21 +24,18 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: 0,
   },
-  PostCard: {
-    marginLeft: 10,
-  },
- 
+  
   Pagination: {
     marginTop: "40px",
     marginLeft: "30px",
   },
   leftContainer: {
-    marginTop: "20px",
+    marginTop: "10px",
     marginLeft: "5px",
   },
 
   PostContainer: {
-    marginTop: 50,
+    marginTop: 10,
     width: "100%",
   },
   BreadCrumbText: {
@@ -68,47 +65,42 @@ export function RenderCard({ post, isLoading, errMess }) {
             exitTransform: "scale(0.5) translateY(-50%)",
           }}
         >
-
-        <Card
-          className={classes.RenderCard}
-        >
-          <CardActionArea>
-            {/* <CardMedia
+          <Card className={classes.RenderCard}>
+            <CardActionArea>
+              {/* <CardMedia
                 className={classes.media}
                 image="/static/images/cards/contemplative-reptile.jpg"
                 title="Contemplative Reptile"
               /> */}
-            <CardContent className="p-0 m-0">
-              {/* <CardTitle>{item.name}</CardTitle>
+              <CardContent className="p-0 m-0">
+                {/* <CardTitle>{item.name}</CardTitle>
                 {item.designation ? (
                   <CardSubtitle>{item.designation}</CardSubtitle>
                 ) : null}
                 <CardText>{item.description}</CardText>
                 <h1>hello</h1> */}
-              <Typography gutterBottom variant="h5" component="h2">
-                {post.name}
-              </Typography>
-              
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="h4"
-                  >
-                    {post.description}
-                  </Typography>
-              
-            </CardContent>
-          </CardActionArea>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {post.name}
+                </Typography>
 
-          <CardActions>
-            <Link>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </Link>
-          </CardActions>
-        </Card>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="h4"
+                >
+                  {post.description}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
 
+            <CardActions>
+              <Link>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+              </Link>
+            </CardActions>
+          </Card>
         </FadeTransform>
       </div>
     );
@@ -119,7 +111,7 @@ const Education = () => {
   return (
     <React.Fragment>
       <Grid container spacing={4} className={classes.MainContainer}>
-        <div className="mt-3 mb-3 container">
+        <div className="mt-3 mb-1 container">
           <Breadcrumbs
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
@@ -142,7 +134,7 @@ const Education = () => {
         </div>
         <Grid item xs={11} md={8} className={classes.leftContainer}>
           <Grid container spacing={2} className={classes.PostCard}>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+            <Grid item xs={11} sm={6} md={4} className={classes.PostContainer}>
               <RenderCard
                 post={Posts[0]}
                 // item={this.props.dish}
@@ -150,18 +142,16 @@ const Education = () => {
                 // errMess={this.props.dishesErrMess}
               />
             </Grid>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+            <Grid item xs={11} sm={6} md={4} className={classes.PostContainer}>
               <RenderCard
-                className={classes.RenderCard}
                 post={Posts[1]}
                 // item={this.props.promotion}
                 // isLoading={this.props.promoLoading}
                 // errMess={this.props.promoErrMess}
               />
             </Grid>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+            <Grid item xs={11} sm={6} md={4} className={classes.PostContainer}>
               <RenderCard
-                className={classes.RenderCard}
                 post={Posts[2]}
                 // item={this.props.leader}
                 // isLoading={this.props.leaderLoading}

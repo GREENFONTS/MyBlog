@@ -34,21 +34,12 @@ const useStyles = makeStyles((theme) => ({
   },
 
   Pagination: {
-    marginTop: "40px",
+    marginTop: "10px",
     marginLeft: "30px",
   },
   leftContainer: {
-    marginTop: "20px",
     marginLeft: "5px",
-  },
-  RenderCard: {
-    height: "27vh",
-    padding: 0,
-    marginTop: "20px",
-    marginRight: "5px",
-    display: "inline-block",
-    width: "250px",
-  },
+  }
 }));
 
 
@@ -60,7 +51,7 @@ export function RenderCard(props, {Loading}) {
     return <h4>{props.errMess}</h4>;
   } else
     return (
-      <div>
+      <div className="row row-content spacing-2 p-0 m-0">
         <FadeTransform in
           transformProps={{
             exitTransform: "scale(0.5) translateY(-50%)",
@@ -69,8 +60,8 @@ export function RenderCard(props, {Loading}) {
         {props.posts.map((post) => {
           return (
             <Card
-              className={classes.RenderCard}
-              id="renderCard"
+              className="col-12 col-sm-6 col-md-4 box d-inline-block"
+              // id="renderCard"
             >
               <CardActionArea>
                 {/* <CardMedia
@@ -149,10 +140,6 @@ const Home = (props) => {
   for (let i = 1; i <= Math.ceil(posts.length / pagesPerRow); i++){
     paginations.push(i)
   }
-  const paginate = (num) => {
-    console.log(num)
-    setCurrentPage(num)
-  }
 
   const PaginationView = () => {
     if (currentPage <= 1) {
@@ -165,15 +152,14 @@ const Home = (props) => {
             {paginations.map((num) => {
               return (
                 <li className="page-item list-unstyled d-inline-block">
-                  <a
+                  <button
                     className="btn btn-light"
                     id="pagbutton"
-                    href="/"
                     key={num}
-                    onClick={() => paginate(num)}
+                    onClick={() => setCurrentPage(num)}
                   >
                     {num}
-                  </a>
+                  </button>
                 </li>
               );
             })}
@@ -202,14 +188,13 @@ const Home = (props) => {
             {paginations.map((num) => {
               return (
                 <li className="page-item list-unstyled d-inline-block">
-                  <a
+                  <button
                     className="btn btn-light"
                     id="pagbutton"
-                    href="/"
-                    onClick={() => paginate(num)}
+                    onClick={() => setCurrentPage(num)}
                   >
                     {num}
-                  </a>
+                  </button>
                 </li>
               );
             })}
@@ -234,14 +219,13 @@ const Home = (props) => {
             {paginations.map((num) => {
               return (
                 <li className="page-item list-unstyled d-inline-block">
-                  <a
+                  <button
                     className="btn btn-light"
                     id="pagbutton"
-                    href="/"
-                    onClick={() => paginate(num)}
+                    onClick={() => setCurrentPage(num)}
                   >
                     {num}
-                  </a>
+                  </button>
                 </li>
               );
             })}
@@ -264,12 +248,16 @@ const Home = (props) => {
     <React.Fragment>
       <Grid container spacing={4} className={classes.MainContainer}>
         <Grid item xs={11} md={8} className={classes.leftContainer}>
-          
-            <Slider />
+          <Slider />
+          {/* <Grid spacing={2} className={classes.PostCard}> */}
+            <RenderCard
+              posts={currentPosts}
+              isLoading={Loading}
+              errMess={props.errMess}
+            />
+      
 
-          <Grid container spacing={2} className={classes.PostCard}>
-            <RenderCard posts={currentPosts} isLoading={Loading} errMess={props.errMess}/>
-          </Grid>
+          {/* </Grid> */}
 
           <Grid container spacing={1} className={classes.Pagination}>
             {PaginationView()}
@@ -277,7 +265,7 @@ const Home = (props) => {
         </Grid>
 
         <Grid item xs={11} md={3} className={classes.GridRight}>
-          <RightBar mailForm={props.mailForm} successMess={props.successMess}/>
+          <RightBar mailForm={props.mailForm} successMess={props.successMess} />
         </Grid>
       </Grid>
     </React.Fragment>

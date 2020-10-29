@@ -57,22 +57,22 @@ const About = (props) => {
       </div>
 
       <Grid container spacing={4}>
-        <div className="container pr-5 mt-3 mb-3">
+        <div className="container pr-5 mt-3 mb-1">
           <h3>About Us</h3>
           <Divider />
         </div>
         <Grid item spacing={5} xs={11} md={8}>
           <Grid container>
-            <Grid item xs={11} md={4}>
+            <Grid item xs={11} sm={5} md={6} >
               <img
                 alt="Godwill Onyewuchi"
                 src="/assets/images/Mypic.jpg"
                 // className="mr-2"
-                width={220}
-                height={220}
+                width={200}
+                height={200}
               />
             </Grid>
-            <Grid item xs={11} md={6}>
+            <Grid item xs={11} sm={7} md={6} className="mt-2">
               <Card>
                 <CardActionArea>
                   <Typography className={classes.Facts}>

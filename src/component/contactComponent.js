@@ -122,18 +122,18 @@ const Contact = () => {
 
                   <CardContent>
                     <dl className="row p-1">
-                      <dt className="col-4">Our Address</dt>
-                      <dd className="col-8">
+                      <dt className="col-3">Our Address</dt>
+                      <dd className="col-9">
                         St, Peter's Church Olokoro, Umuahia, Abia State
                       </dd>
-                      <dt className="col-4">Country</dt>
-                      <dd className="col-8">NIGERIA</dd>
-                      <dt className="col-4">Phone</dt>
-                      <dd className="col-8">+234 8132 30908</dd>
-                      <dt className="col-4">Mobile</dt>
-                      <dd className="col-8">+234 8027 037290</dd>
-                      <dt className="col-4">Email</dt>
-                      <dd className="col-8">godwillonyewuchii@gmail.com</dd>
+                      <dt className="col-3">Country</dt>
+                      <dd className="col-9">NIGERIA</dd>
+                      <dt className="col-3">Phone</dt>
+                      <dd className="col-9">+234 8132 30908</dd>
+                      <dt className="col-3">Mobile</dt>
+                      <dd className="col-9">+234 8027 037290</dd>
+                      <dt className="col-3">Email</dt>
+                      <dd className="col-9">godwillonyewuchii@gmail.com</dd>
                     </dl>
                   </CardContent>
                 </CardActionArea>

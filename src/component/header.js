@@ -39,6 +39,7 @@ const useStyles = makeStyles({
     display: "inline-block",
   },
   headerName: {
+    fontSize: "1.1rem",
     marginRight: 20,
     fontWeight: 650,
   },
@@ -91,7 +92,7 @@ const Header = () => {
               src="/assets/images/green logo.jpg"
               className="mr-2"
             />
-            <ListItemText>GREENFONTSMEDIA</ListItemText>
+            <ListItemText >GREENFONTSMEDIA</ListItemText>
           </ListItem>
           <Divider />
           <Link href="/">
@@ -156,18 +157,18 @@ const Header = () => {
         <Typography className={classes.headerName}>GREENFONTSMEDIA </Typography>
 
         <List className={classes.Icons}>
-          <Link href="https:www.facebook.com">
-            <ListItemIcon className="text-light p-0 m-0">
+          <Link href="https:www.facebook.com" target="_blank">
+            <ListItemIcon className="text-light icon">
               <FacebookIcon />
             </ListItemIcon>
           </Link>
-          <Link href="https:www.github.com/GREENFONTS">
-            <ListItemIcon className="text-light p-0 m-0">
+          <Link href="https:www.github.com/GREENFONTS" target="_blank">
+            <ListItemIcon className="text-light icon">
               <GitHubIcon />
             </ListItemIcon>
           </Link>
-          <Link href="https:www.linkedIn.com">
-            <ListItemIcon className="text-light p-0 m-0 ">
+          <Link href="https:www.linkedIn.com" target="_blank">
+            <ListItemIcon className="text-light icon">
               <LinkedInIcon />
             </ListItemIcon>
           </Link>
@@ -192,13 +193,13 @@ const Header = () => {
                 <MenuIcon className="mr-2" /> MENU
               </IconButton>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <Link href="/">
+                <Link href="/" className="link">
                   <ListItem button className="text-light">
-                    <HomeIcon className="mr-2" />
+                    <HomeIcon className="mr-1" />
                     <ListItemText>HOME</ListItemText>
                   </ListItem>
                 </Link>
-                <Link href="/aboutus">
+                <Link href="/aboutus" className="link">
                   <ListItem button className="text-light">
                     <InfoIcon className="mr-2" />
                     <ListItemText>ABOUT</ListItemText>

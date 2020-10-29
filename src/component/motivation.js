@@ -24,23 +24,15 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: 0,
   },
-  PostCard: {
-    marginLeft: 10,
-  },
-
   Pagination: {
     marginTop: "40px",
     marginLeft: "30px",
   },
   leftContainer: {
-    marginTop: "20px",
+    marginTop: "10px",
     marginLeft: "5px",
   },
 
-  PostContainer: {
-    marginTop: 50,
-    width: "100%",
-  },
   BreadCrumbText: {
     fontWeight: 700,
     fontSize:25,
@@ -117,7 +109,7 @@ const Motivation = () => {
   return (
     <React.Fragment>
       <Grid container spacing={4} className={classes.MainContainer}>
-        <div className="mt-3 mb-3 container">
+        <div className="mt-3 mb-1 container">
           <Breadcrumbs
             separator={<NavigateNextIcon fontSize="small" />}
             aria-label="breadcrumb"
@@ -139,8 +131,8 @@ const Motivation = () => {
           </Breadcrumbs>
         </div>
         <Grid item xs={11} md={8} className={classes.leftContainer}>
-          <Grid container spacing={2} className={classes.PostCard}>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+          <Grid container spacing={2}>
+            <Grid item xs={11} sm={6} md={4}>
               <RenderCard
                 post={Posts[0]}
                 // item={this.props.dish}
@@ -148,7 +140,7 @@ const Motivation = () => {
                 // errMess={this.props.dishesErrMess}
               />
             </Grid>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+            <Grid item xs={11} sm={6} md={4}>
               <RenderCard
                 className={classes.RenderCard}
                 post={Posts[1]}
@@ -157,7 +149,7 @@ const Motivation = () => {
                 // errMess={this.props.promoErrMess}
               />
             </Grid>
-            <Grid item xs={11} md={4} className={classes.PostContainer}>
+            <Grid item xs={11} sm={6} md={4}>
               <RenderCard
                 className={classes.RenderCard}
                 post={Posts[2]}

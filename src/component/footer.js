@@ -40,7 +40,7 @@ function Footer(props) {
               </li>
             </ul>
           </div>
-          <div className="col-7 col-sm-5">
+          <div className="col-7 col-sm-6">
             <h5>Our Address</h5>
             <address>
               St, Peter's Church Olokoro
@@ -53,13 +53,6 @@ function Footer(props) {
               <br />
               <i className="fa fa-fax fa-lg"></i>: +234 8027 037290
               <br />
-              <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a
-                href="https://www.godwillonyewuchii@gmail.com"
-                className="text-light"
-              >
-                godwillonyewuchii@gmail.com
-              </a>
             </address>
           </div>
           <div className="col-12 col-sm-4 align-self-center">
@@ -67,36 +60,49 @@ function Footer(props) {
               <a
                 className="btn btn-social-icon btn-google m-1"
                 href="http://google.com/+"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa fa-google-plus"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-facebook m-1"
                 href="https://web.facebook.com/godwill.onyewuchi"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa fa-facebook"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-linkedin m-1"
                 href="https://www.linkedin.com/in/godwill-onyewuchi-6746621b4/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa fa-linkedin"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-twitter m-1"
                 href="https://twitter.com/GODWILLONYEWUC1"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa fa-twitter"></i>
               </a>
-              <a className="btn btn-social-icon m-1" href="https://www.godwillonyewuchii@gmail.com">
+              <a
+                className="btn btn-social-icon m-1 text-light"
+                href="https://www.godwillonyewuchii@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-auto">
-            <p>© Copyright 2020 GreenfontsMediaResources</p>
+          <div className="col-auto mt-2">
+            <p className="text-center">© Copyright 2020 GreenfontsMediaResources</p>
           </div>
         </div>
       </div>

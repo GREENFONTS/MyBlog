@@ -20,7 +20,7 @@ body{
   height: 40vh;
   width: 100%;
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 .rec-carousel-item:focus {
@@ -58,15 +58,16 @@ padding: 8px 20px;
 #RightBarlinks{
   cursor: pointer;
 }
-.RenderCard {
-    height: "27vh";
-    padding: 0;
-    margin: "20px";
-    display: "inline-block";
-    width:"250px";
+.CardList{
+  min-height: auto !important;
+}
+.icon{
+  min-width: 20px !important;
 }
 
-
+.MuiListItem-gutters{
+  padding: 10px !important;
+}
 
 @media(max-width: 600px){
 #App{
@@ -74,7 +75,7 @@ padding: 8px 20px;
   padding: 5px;
   margin: auto;
 }
-#Prev{
+ #Prev{
   margin-left: -20px;
   font-size: 10px;
 }
@@ -103,10 +104,10 @@ padding: 8px 20px;
   left: 0;
   min-height: 300px;
   /* width: 300px; */
-}
+ }
 #carouselButton {
   right: 0px;
   position: absolute;
   bottom: 0px;
   z-index: 1;
-}
+}  
